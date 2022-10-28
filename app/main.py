@@ -14,3 +14,5 @@ app.include_router(sales.router, prefix="/sales")
 async def info():
     return {"Message":'Hi ! I\'am Pham Nguyen Phu Khanh'}
 
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=5000)

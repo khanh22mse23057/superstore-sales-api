@@ -1,5 +1,5 @@
 
-{  "name": "FastApi Skeleton",
+{  "name": "superstore-ales-api",
     "description": "A Boilerplate FastApi project",
     "keywords": [
       "python",
@@ -8,8 +8,8 @@
       "travis-ci"
     ],
     "website": "https://fastapi-skeleton.herokuapp.com/",
-    "repository": "https://github.com/ari-hacks/fastapi-skeleton",
-    "success_url": "/users/health-check",
+    "repository": "https://github.com/khanh22mse23057/superstore-ales-api",
+    "success_url": "/info",
     "env": {
         
     },

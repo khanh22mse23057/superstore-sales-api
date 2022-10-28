@@ -7,9 +7,6 @@ A Boilerplate FastApi project
 ## Features 
 - [x] Boilerplate project structure  
 - [x] Asynchronous API 
-- [ ] User login and Authentication 
-- [ ] MongoDb 
-- [ ] CRUD endpoints 
 - [x] Travis CI configuration before deploy 
 - [x] API testing with `pytest` 
 - [x] Pipenv dependency management 
@@ -21,15 +18,26 @@ A Boilerplate FastApi project
 
 - [Python](https://www.python.org/) 3.8.1
 - Pipenv
+        → pip install pipenv
+
+  ```` Setup in Windown
+
+    → py -3 -m venv venv
+    → venv\Scripts\activate
+    → pip install pipenv
+    → pipenv install
+
+  ````
 
 ## Running Locally 
 
 1. Clone this repository and `cd` into it
 
     ```bash
-        → git clone https://github.com/ari-hacks/fastapi-skeleton.git
-        → cd fastapi-skeleton
+        → cd superstore-ales-api
     ```
+
+
 2. Pipenv dependency management 
     ```bash
         #run pipenv 
@@ -49,7 +57,7 @@ A Boilerplate FastApi project
     ```
 5. Start Docker container 
     ```bash
-        ➜ docker run -d --name fastapi-skeleton-container -p 5000:5000 app
+        ➜ docker run -d --name superstore-ales-api -p 5000:5000 app
     ```
 6. Run the application
    ```bash 
@@ -59,9 +67,12 @@ A Boilerplate FastApi project
    ```
 7. Check the logs 
    ```bash 
-   ➜ docker container logs -f fastapi-skeleton-container
+   ➜ docker container logs -f superstore-ales-api
    ```
+## Dev
+uvicorn app.main:app --host localhost --port 8000 --reload
 
+-> Enjoy: http://localhost:8000/docs
 ## Deploy pre-configured (Docker Deploy)
 
 Please [Sign up](https://www.heroku.com/)  before Deploying. 
