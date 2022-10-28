@@ -1,0 +1,24 @@
+
+{  "name": "FastApi Skeleton",
+    "description": "A Boilerplate FastApi project",
+    "keywords": [
+      "python",
+      "fastapi",
+      "Docker",
+      "travis-ci"
+    ],
+    "website": "https://fastapi-skeleton.herokuapp.com/",
+    "repository": "https://github.com/ari-hacks/fastapi-skeleton",
+    "success_url": "/users/health-check",
+    "env": {
+        
+    },
+    "stack" : "container",
+    "environments": {
+      "test": {
+        "scripts": {
+          "test": "pytest"
+        }
+      }
+    }
+  }
