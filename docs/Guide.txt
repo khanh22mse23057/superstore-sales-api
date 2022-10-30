@@ -3,20 +3,14 @@ $env:FLASK_ENV = "development"
 $env:PYTHON_ENV="development python src/main.py"
 
 PYTHON_ENV=development python src/main.py
+
 py -3 -m venv venv
 venv\Scripts\activate
 pip install pipenv
-pipenv install
-pip install Flask
+khanh22mse23057
+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
+ 
 
-pip install fastapi
-pip install uvicorn
- khanh22mse23057
- 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
- 
- 
- 
- 
 sudo apt update
 sudo apt install python3-venv
 python3 -m venv venv
@@ -25,12 +19,8 @@ source venv/bin/activate
 
 uvicorn app.main:app --host localhost --port 8000 --reload
 
-gunicorn app.main:app -b :8899
 
 from multiprocessing import cpu_count
-
-
-
 # Socket Path
 bind = '/home/hunix/king/superstore-sales-api/gunicorn.sock'
 
@@ -55,18 +45,13 @@ User=hnuix
 Group=www-data
 
 WorkingDirectory=~/home/hunix/king/superstore-ales-api
-
 ExecStart=/home/hunix/king/superstore-sales-api/venv/bin/gunicorn -c gunicorn_conf.py app.main:app
-
 
 [Install]
 WantedBy=multi-user.target
 
 
-
+#To verify if everything works run the following command.
 $ sudo systemctl start superstore_sales_api
-
 $ sudo systemctl enable superstore_sales_api
-To verify if everything works run the following command.
-
 $ sudo systemctl status superstore_sales_api
