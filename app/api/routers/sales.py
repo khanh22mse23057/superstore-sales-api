@@ -39,7 +39,7 @@ class ForecastSale(BaseModel):
     Lower_Sale: float
     Upper_Sales: float
 
-@router.get("/forecast-by-category", status_code=200, response_model=ForecastSale)
+@router.get("/forecast-by-category", status_code=200)
 async def get_top_category(category: str, toDate : date):
 
     d_cat = ['Furniture', 'Office Supplies', 'Technology']
@@ -50,18 +50,21 @@ async def get_top_category(category: str, toDate : date):
         endDate = pd.to_datetime(toDate, format='%Y/%m/%d')
         print(category)
         print(toDate)
-        r_train = main.Cat_Train_Result[category] if category in main.Cat_Train_Result else initiatier.prediction_by_cat(main.data, category)
-        main.Cat_Train_Result[category ] = r_train
+        #r_train = main.Cat_Train_Result[category]  else initiatier.prediction_by_cat(main.data, category)
 
+        if category not in main.Cat_Train_Result:
+            main.Cat_Train_Result[category] = initiatier.prediction_by_cat(main.data, category)
+           
+        r_train = main.Cat_Train_Result[category]
         print(r_train)
         result =  initiatier.get_prediction_to(r_train, endDate.strftime('%Y/%m/%d'))
         # pre_r = result[result['Date'] < endDate]
         pre_r = result[(result['Date'] >= pd.to_datetime('today')) &  (result['Date'] <= endDate)]
-        # pre_r['Date'] = pd.to_datetime(pre_r['Date'], format='%Y-%m-%d').strftime('%Y/%m/%d')
-        print(pre_r)
+        # pre_r['Date'] = pd.to_datetime(pre_r['Date'], format='%Y-%m-%d')
+        # print(pre_r)
 
-        res = [(ForecastSale(row['Date'],row['Lower_Sale'],row['Upper_Sales'])) for index, row in pre_r.iterrows()]  
-        return res
+        # res = [(ForecastSale(row['Date'],row['Lower_Sale'],row['Upper_Sales'])) for index, row in pre_r.iterrows()]  
+        return pre_r
         # return list(map(lambda x:ForecastSale(Date=x[0],Lower_Sale=x[1], Upper_Sales = x[2]),pre_r.values.tolist()))
     except Exception as e: print(e)
     
