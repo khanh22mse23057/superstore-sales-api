@@ -1,2 +1,5 @@
 /venv
 /*.lock
+app/api/routers/__pycache__/sales.cpython-310.pyc
+app/services/__pycache__/__init__.cpython-310.pyc
+app/services/__pycache__/initiatier.cpython-310.pyc
