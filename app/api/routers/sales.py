@@ -41,7 +41,7 @@ class ForecastSale(BaseModel):
     Upper_Sales: float
 
 @router.get("/forecast-by-category", status_code=200)
-async def get_top_category(category: str, toDate : date):
+async def forecast_sale_by_category(category: str, toDate : date):
 
     d_cat = ['Furniture', 'Office Supplies', 'Technology']
     try:
