@@ -17,7 +17,7 @@ A Boilerplate FastApi project
 
 ### Requirements
 
-- [Python](https://www.python.org/) 3.8.1
+- [Python](https://www.python.org/) >= 3.8.1
 - Pipenv
         → pip install pipenv
 
