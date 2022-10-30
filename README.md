@@ -1,4 +1,5 @@
-# FastApi Skeleton
+# superstore-sales-api with FASTApi
+
 A Boilerplate FastApi project
 
 ![MIT license](https://img.shields.io/badge/License-MIT-blue.svg) [![Build Status](https://api.travis-ci.com/ari-hacks/fastapi-boilerplate.svg?branch=master)](https://travis-ci.com/ari-hacks/fastapi-skeleton)
