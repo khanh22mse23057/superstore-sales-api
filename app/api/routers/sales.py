@@ -10,6 +10,7 @@ import pandas as pd
 from app import main
 from pandas import json_normalize 
 from pydantic import BaseModel
+import numpy
 
 router = APIRouter()
 
@@ -60,12 +61,13 @@ async def get_top_category(category: str, toDate : date):
         result =  initiatier.get_prediction_to(r_train, endDate.strftime('%Y/%m/%d'))
         # pre_r = result[result['Date'] < endDate]
         pre_r = result[(result['Date'] >= pd.to_datetime('today')) &  (result['Date'] <= endDate)]
-        # pre_r['Date'] = pd.to_datetime(pre_r['Date'], format='%Y-%m-%d')
-        # print(pre_r)
 
-        # res = [(ForecastSale(row['Date'],row['Lower_Sale'],row['Upper_Sales'])) for index, row in pre_r.iterrows()]  
-        return pre_r
-        # return list(map(lambda x:ForecastSale(Date=x[0],Lower_Sale=x[1], Upper_Sales = x[2]),pre_r.values.tolist()))
+        r = pd.DataFrame.from_dict(pre_r.to_dict(), orient='index').to_dict()
+        result = []
+        for k in r:
+            result.append(r[k])
+        return result
+
     except Exception as e: print(e)
     
     return {"Error":'Cannt forecast sales'}
