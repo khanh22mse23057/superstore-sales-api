@@ -9,6 +9,10 @@ verify_ssl = true
 fastapi = "*"
 uvicorn = "*"
 requests = "*"
+opendatasets = "*"
+panda = "*"
+numpy = "*"
+statsmodels = "*"
 
 [requires]
 python_version = "3.8"
