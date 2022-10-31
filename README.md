@@ -77,5 +77,4 @@ uvicorn app.main:app --host localhost --port 8000 --reload
 ## Deploy pre-configured (Docker Deploy)
 
 ### Có thể sử dụng heroku để host
-Please [Sign up](https://www.heroku.com/)  before Deploying. 
- [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)                                               
+Please [Sign up](https://www.heroku.com/)  before Deploying.  [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)                                               
