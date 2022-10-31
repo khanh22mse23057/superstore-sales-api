@@ -58,7 +58,7 @@ A Boilerplate FastApi project
     ```
 5. Start Docker container 
     ```bash
-        ➜ docker run -d --name superstore-ales-api -p 5000:5000 app
+        ➜ docker run -d --name superstore-sales-api -p 5000:5000 app
     ```
 6. Run the application
    ```bash 
@@ -68,7 +68,7 @@ A Boilerplate FastApi project
    ```
 7. Check the logs 
    ```bash 
-   ➜ docker container logs -f superstore-ales-api
+   ➜ docker container logs -f superstore-sales-api
    ```
 ## Dev
 uvicorn app.main:app --host localhost --port 8000 --reload
@@ -76,6 +76,6 @@ uvicorn app.main:app --host localhost --port 8000 --reload
 -> Enjoy: http://localhost:8000/docs
 ## Deploy pre-configured (Docker Deploy)
 
+### Có thể sử dụng heroku để host
 Please [Sign up](https://www.heroku.com/)  before Deploying. 
-
  [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)                                               
