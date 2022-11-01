@@ -63,7 +63,7 @@ def prediction_by_cat(data, cat_name):
 
     mod_os = sm.tsa.statespace.SARIMAX(os_y,
                                 order=(1,1,1),
-                                seasonal_order= (1,1,0,12),
+                                seasonal_order= (1,1,1,12),
                                 enforce_stationarity = False,
                                 enforce_invertibility=False)
 
