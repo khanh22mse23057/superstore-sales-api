@@ -15,18 +15,23 @@ import numpy
 router = APIRouter()
 
 @router.get("/top-by-product", status_code=200)
-async def get_top_product(index: Optional[int] = Query(5, max=50)):
-    results = {"items": [{"item_id": "Foo"}, {"item_id": "Bar"}]}
-    if index:
-        results.update({"q": index})
-    return results
+async def get_top_product(top: Optional[int] = Query(5, max=50)):
+    top_product_sales = main.data.groupby(["Product ID", "Product Name"])["Sales"].sum().reset_index(name="Sales").sort_values("Sales", ascending= False)
 
-@router.get("/top-by-category", status_code=200)
-async def get_top_category(category: Optional[str] = Query(5, max_length=100)):
-    results = {"items": [{"item_id": "Foo"}, {"item_id": "Bar"}]}
-    if category:
-        results.update({"q": category})
-    return results
+    r = pd.DataFrame.from_dict(top_product_sales[:top].to_dict(), orient='index').to_dict()
+    result = []
+    for k in r:
+        result.append(r[k])
+    return result
+
+@router.get("/top-by-city", status_code=200)
+async def get_top_city(top: Optional[int] = Query(5, max=50)):
+    top_city_sales = main.data.groupby(["City"])["Sales"].sum().reset_index(name="Sales").sort_values("Sales", ascending= False)
+    r = pd.DataFrame.from_dict(top_city_sales[:top].to_dict(), orient='index').to_dict()
+    result = []
+    for k in r:
+        result.append(r[k])
+    return result
 
 @router.get("/get-category", status_code=200)
 async def get_category():
