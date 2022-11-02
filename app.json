@@ -7,7 +7,7 @@
       "Docker",
       "travis-ci"
     ],
-    "website": "https://fastapi-skeleton.herokuapp.com/",
+    "website": "https://superstore-sale-api.fsbmse11.live/",
     "repository": "https://github.com/khanh22mse23057/superstore-ales-api",
     "success_url": "/info",
     "env": {
